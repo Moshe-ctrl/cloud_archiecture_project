@@ -1,3 +1,7 @@
+runs:
+  using: 'node16'
+  main: 'index.js'
+  post: 'cleanup.js'
 %html{"ng-app" => "FreeUse", "ng-cloak" => "true"}
 
   .container
