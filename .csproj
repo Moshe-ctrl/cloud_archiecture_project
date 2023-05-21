@@ -1,7 +1,7 @@
 <%@ Page Language="C#" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "ftps://waws-prod-bay-157.ftp.azurewebsites.windows.net/site/wwwroot">
 
 <script runat="server">
     void DropDownSelection_Change(Object sender, EventArgs e)
