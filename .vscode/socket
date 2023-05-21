@@ -1,0 +1,31 @@
+import socket
+from threading import Threading
+SERVER_HOST = "0.0.0.0"
+SERVER_PORT = 5002
+separator_token = "<SEP>"
+client_socketss = set()
+s = socket.socket()
+s.setsockopt(socket.SOL_REUSADDR, 1)
+s.bind((SERVER_HOST, SERVER_PORT))
+s.listen(5)
+print(f"[*] Listening as {SERVER_HOST}:{SERVER_PORT}")
+def listen_for_client(ca):
+    while True:
+        try:
+            msg = cs.recv(1024).decode()
+        except Exception as e:
+            print(f"[!] Error: {e}")
+            client_sockets.remove(cs)
+        else:
+            msg = msg.replace(separator_token, ":")
+        for client_sockets.send(msg.encode())
+while True:
+    client_socket, client_address = s.accept()
+    print(f"[+] {client_address} connected.")
+    client_sockets.add(client_socket)
+    t = Thread(target=listen_for_clieent, args=(client_socket,))
+    t.daemon = True
+t.start()
+for cs in client_sockets:
+    cs.close()
+s.close()
