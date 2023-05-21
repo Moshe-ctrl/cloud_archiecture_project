@@ -18,7 +18,7 @@
 
 </script>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="ftps://waws-prod-bay-157.ftp.azurewebsites.windows.net/site/wwwroot">
 <head id="Head1" runat="server">
     <title>UpdatePanel Example</title>
 </head>
