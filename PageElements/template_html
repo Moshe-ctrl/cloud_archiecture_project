@@ -1,0 +1,45 @@
+%html{"ng-app" => "FreeUse", "ng-cloak" => "true"}
+
+  .container
+  
+    .inbox
+      
+      %aside
+        
+        %ul{"ng-controller" => "chatCtrl as chat"}
+        
+          %div{"ng-repeat" => "chat in chats"}
+        
+            %li{"ng-click" => "uid(chat.id)"}
+
+              %img{:class => "avatar", :src => "{{chat.avatar}}"}
+
+              %p{:class => "username"} {{chat.username}}
+      
+      %main{"ng-controller" => "chatCtrl as chat"}
+      
+        .init
+      
+          %i{:class => "fa fa-inbox"}
+          
+          %h4 Choose a conversation from the left
+        
+        .loader 
+          %p
+          %h4 Loading
+        
+        .message-wrap{"ng-repeat" => "message in chats", "ng-show" => "value == message.id"}
+          
+          .message{"ng-repeat" => "i in message.messages track by $index"}
+          
+            %p {{i}}
+
+            %img{'ng-src' => "{{message.avatar}}"}
+            
+        %footer
+        
+          %form{"ng-submit" => "add()"}
+        
+            %input{:type => "text", :placeholder => "Enter a message", "ng-model" => "text"}
+
+            %input{:type => "submit", :value => "Send"}
